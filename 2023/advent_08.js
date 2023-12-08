@@ -10,7 +10,7 @@ const accountSteps = (start, data, predicate) => {
     let i = 0;
     let item = start;
     do {
-        item = (data.map)[item][(data.instructions)[i++ % data.instructions.length]];
+        item = data.map[item][data.instructions[i++ % data.instructions.length]];
     } while (!predicate(item))
     return i;
 }
