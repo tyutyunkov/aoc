@@ -1,14 +1,13 @@
 const parse = input => input
     .map(str => str.split(' ').map(v => v - 0))
 
-const diffRow = row => {
-    return row.slice(1).reduce(({c, diff}, v) => ({
+const diffRow = row => row.slice(1)
+    .reduce(({c, diff}, v) => ({
             c: v,
             diff: [...diff, v - c]
         }),
         {c: row[0], diff: []}
     ).diff
-}
 
 const buildDiffs = row => {
     const diffs = [row];
