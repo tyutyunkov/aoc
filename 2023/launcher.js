@@ -15,4 +15,14 @@ const input = require('fs')
 
 const dayScript = require(`./advent_${day}`);
 
+const formatTime = ms => {
+    let minutes = Math.floor(ms / 60000);
+    let seconds = ((ms % 60000) / 1000).toFixed(0);
+    let milliseconds = (ms % 1000).toFixed(0);
+
+    return (minutes ? `${minutes}m ` : '') + `${seconds}s ${milliseconds}ms`;
+}
+
+const start = new Date();
 console.log(dayScript[part](input));
+console.log(formatTime(new Date().getTime() - start.getTime()));
