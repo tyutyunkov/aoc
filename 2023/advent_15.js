@@ -9,10 +9,7 @@ exports.part1 = input => parse(input).map(hash).reduce((acc, v) => acc + v, 0);
 exports.part2 = input =>
     Object.entries(
         parse(input)
-            .map(str => str.endsWith('-')
-                ? ({s: str.substring(0, str.length - 1), op: '-'})
-                : ({s: str.split('=')[0], op: '=', len: str.split('=')[1]})
-            )
+            .map(str => /(?<s>\w+)(?<op>[=-])(?<len>\d+)?/.exec(str).groups)
             .reduce((acc, {s, op, len}) => {
                 const hashValue = hash(s);
                 const box = acc[hashValue] ?? [];
