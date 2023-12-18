@@ -24,5 +24,5 @@ const formatTime = ms => {
 }
 
 const start = new Date();
-console.log(dayScript[part](input));
-console.log(formatTime(new Date().getTime() - start.getTime()));
+console.log(`Star${part.charAt(4)}:`, dayScript[part](input));
+console.log('Duration: ', formatTime(new Date().getTime() - start.getTime()));
