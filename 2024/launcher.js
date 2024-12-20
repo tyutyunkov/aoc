@@ -10,7 +10,7 @@ const part = `part${argv.p}`
 const mode = argv.r ? '' : '.test';
 
 const input = require('fs')
-    .readFileSync(`input_${day}${mode}.txt`, 'utf-8').trim()
+    .readFileSync(`input_${[day, mode].filter(v => v !== '').join('.')}.txt`, 'utf-8').trim()
     .split('\n');
 
 const dayScript = require(`./advent_${day}`);
